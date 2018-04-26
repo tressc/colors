@@ -40,5 +40,5 @@ const waveColor = () => {
 document.addEventListener("DOMContentLoaded", () => {
   setupPage();
   waveColor();
-  window.setInterval(waveColor, 300);
+  window.setInterval(waveColor, 450);
 });
