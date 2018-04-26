@@ -1,0 +1,21 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*transform: rotate(45deg);*/
+}
+
+div {
+  height: 30px;
+  width: 30px;
+  /*border: 1px solid black;*/
+  background-color: skyblue;
+}
+
+.root {
+  display: grid;
+  grid-template-columns: repeat(5, 30px);
+  grid-gap: 0;
+  grid-auto-rows: minmax(30px, auto);
+}
