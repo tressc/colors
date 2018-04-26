@@ -79,5 +79,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPage();
   mouseColors();
   timedColors();
-  waveColors();
+  // waveColors();
 });
