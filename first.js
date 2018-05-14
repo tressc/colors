@@ -1,11 +1,11 @@
 const setupPage = () => {
   for (let i = 1; i < 26; i++) {
-    // const a = Math.floor(Math.random() * 256);
-    // const b = Math.floor(Math.random() * 256);
-    // const c = Math.floor(Math.random() * 256);
-    const a = 256;
-    const b = 256;
-    const c = 256;
+    const a = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const c = Math.floor(Math.random() * 256);
+    // const a = 256;
+    // const b = 256;
+    // const c = 256;
     $(".root").append($(
       `<div
         class='square'
@@ -78,6 +78,6 @@ const waveColors = () => {
 document.addEventListener("DOMContentLoaded", () => {
   setupPage();
   mouseColors();
-  timedColors();
+  // timedColors();
   // waveColors();
 });
