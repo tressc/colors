@@ -64,17 +64,17 @@ const ripple = (pos) => {
     for (let i = 0; i < 4; i++) {
       const newRow = cRow + directions[i][0];
       const newCol = cCol + directions[i][1];
-      const seen = visited.has(grid[newRow][newCol]);
       if (newRow >= 0 && newRow < 10) {
         if (newCol >=0 && newCol < 10) {
+          const seen = visited.has(grid[newRow][newCol]);
           if (!seen) {
+            visited.add(grid[newRow][newCol]);
             console.log(grid[newRow][newCol]);
             notYetVisted.push([newRow, newCol]);
           }
         }
       }
-      notYetVisted.push([newRow, newCol]);
-      changeColor(cId, rgb);
+      window.setTimeout(() => {changeColor(cId, rgb);}, 50);
     }
   }
 };
