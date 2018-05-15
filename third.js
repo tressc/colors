@@ -2,7 +2,7 @@ const setupPage = () => {
   const r = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 100; i++) {
     const $div = $("<div>");
     $div.attr("id", i);
     $div.addClass("square");
@@ -11,19 +11,22 @@ const setupPage = () => {
   }
 };
 
-const grid = [
-  ["0","1","2","3","4"],
-  ["5","6","7","8","9"],
-  ["10","11","12","13","14"],
-  ["15","16","17","18","19"],
-  ["20","21","22","23","24"],
-];
+const grid = [];
+
+const setupGrid = () => {
+  for (let i = 0; i < 100; i++) {
+    if (i % 10 === 0) {
+      grid.push([]);
+    }
+    grid[grid.length-1].push(i);
+  }
+};
 
 const bindEvents = () => {
   $(".square").on("click", (e) => {
     const squareId = e.currentTarget.id;
-    const rowIdx = Math.floor(squareId / 5);
-    const colIdx = squareId % 5;
+    const rowIdx = Math.floor(squareId / 10);
+    const colIdx = squareId % 10;
     ripple([rowIdx, colIdx]);
   });
 };
@@ -62,8 +65,8 @@ const ripple = (pos) => {
       const newRow = cRow + directions[i][0];
       const newCol = cCol + directions[i][1];
       const seen = visited.has(grid[newRow][newCol]);
-      if (newRow >= 0 && newRow < 5) {
-        if (newCol >=0 && newCol < 5) {
+      if (newRow >= 0 && newRow < 10) {
+        if (newCol >=0 && newCol < 10) {
           if (!seen) {
             console.log(grid[newRow][newCol]);
             notYetVisted.push([newRow, newCol]);
@@ -85,5 +88,6 @@ const changeColor = (id, rgb) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupPage();
+  setupGrid();
   bindEvents();
 });

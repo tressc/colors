@@ -15,7 +15,7 @@ div {
 
 .root {
   display: grid;
-  grid-template-columns: repeat(5, 30px);
+  grid-template-columns: repeat(10, 30px);
   grid-gap: 0;
   grid-auto-rows: minmax(30px, auto);
 }
