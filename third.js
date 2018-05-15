@@ -61,10 +61,12 @@ const ripple = (pos) => {
     for (let i = 0; i < 4; i++) {
       const newRow = cRow + directions[i][0];
       const newCol = cCol + directions[i][1];
+      const seen = visited.has(grid[newRow][newCol]);
       if (newRow >= 0 && newRow < 5) {
         if (newCol >=0 && newCol < 5) {
-          if (!(visited.has(grid[newRow][newCol]))) {
-            return;
+          if (!seen) {
+            console.log(grid[newRow][newCol]);
+            notYetVisted.push([newRow, newCol]);
           }
         }
       }
